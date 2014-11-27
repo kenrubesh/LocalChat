@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QxY-zD-nzF">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -47,6 +47,13 @@
                                     <constraint firstAttribute="trailing" secondItem="CgP-5I-MxG" secondAttribute="trailing" constant="6" id="nVp-eg-hjF"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-2G-Ggc">
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,8 +62,16 @@
                             <constraint firstItem="dtb-dm-dqh" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="imf-9g-qN6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vbT-Zw-piR">
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="h8i-cM-liy">
+                            <connections>
+                                <segue destination="rjo-F7-wfF" kind="show" id="Ofh-HH-aMl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="chatTextView" destination="wxm-2G-Ggc" id="FjN-it-w4b"/>
                         <outlet property="sendText" destination="CgP-5I-MxG" id="h62-XB-kor"/>
                         <outlet property="textEntryView" destination="dtb-dm-dqh" id="lHv-Jc-l9m"/>
                         <outlet property="textInput" destination="OIK-cj-0oO" id="zgH-4g-h9d"/>
@@ -64,7 +79,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-478" y="246"/>
+            <point key="canvasLocation" x="-194" y="258"/>
+        </scene>
+        <!--Connections-->
+        <scene sceneID="fLy-pR-pKo">
+            <objects>
+                <viewController id="rjo-F7-wfF" customClass="ConnectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Fp-fU-tHh"/>
+                        <viewControllerLayoutGuide type="bottom" id="o20-ep-6Am"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fpk-kG-5Bj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CbK-xv-ML0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rjo-F7-wfF" id="mg5-qs-TeM"/>
+                                    <outlet property="delegate" destination="rjo-F7-wfF" id="bts-Rw-tvN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CbK-xv-ML0" secondAttribute="trailing" id="5me-R6-3fJ"/>
+                            <constraint firstItem="CbK-xv-ML0" firstAttribute="bottom" secondItem="o20-ep-6Am" secondAttribute="top" id="Ra8-Mf-Tzh"/>
+                            <constraint firstItem="CbK-xv-ML0" firstAttribute="top" secondItem="Fpk-kG-5Bj" secondAttribute="top" id="ZVz-Tf-3X3"/>
+                            <constraint firstItem="CbK-xv-ML0" firstAttribute="leading" secondItem="Fpk-kG-5Bj" secondAttribute="leading" id="rMG-qs-bSC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Connections" id="fZj-iX-KDn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ecp-Y0-ZHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197" y="258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fb2-hi-8fc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QxY-zD-nzF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QDy-Ur-X8I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="HuS-WA-BFL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ent-zK-OwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-558" y="258"/>
         </scene>
     </scenes>
 </document>

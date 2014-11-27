@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *textInput;
 @property (weak, nonatomic) IBOutlet UIButton *sendText;
 
+@property (weak, nonatomic) IBOutlet UITextView *chatTextView;
 @end
 

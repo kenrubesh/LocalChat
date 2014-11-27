@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E30B619C1A26EF66003A1DB2 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30B619B1A26EF66003A1DB2 /* ConnectViewController.m */; };
 		E37D47031A1EE50D004AF65B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E37D47021A1EE50D004AF65B /* main.m */; };
 		E37D47061A1EE50D004AF65B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E37D47051A1EE50D004AF65B /* AppDelegate.m */; };
 		E37D47091A1EE50D004AF65B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37D47081A1EE50D004AF65B /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E30B619A1A26EF66003A1DB2 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
+		E30B619B1A26EF66003A1DB2 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		E37D46FD1A1EE50D004AF65B /* LocalChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37D47011A1EE50D004AF65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E37D47021A1EE50D004AF65B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 				E37D470D1A1EE50D004AF65B /* Images.xcassets */,
 				E37D470F1A1EE50D004AF65B /* LaunchScreen.xib */,
 				E37D47001A1EE50D004AF65B /* Supporting Files */,
+				E30B619A1A26EF66003A1DB2 /* ConnectViewController.h */,
+				E30B619B1A26EF66003A1DB2 /* ConnectViewController.m */,
 			);
 			path = LocalChat;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 				E37D47091A1EE50D004AF65B /* ViewController.m in Sources */,
 				E37D47061A1EE50D004AF65B /* AppDelegate.m in Sources */,
 				E37D47031A1EE50D004AF65B /* main.m in Sources */,
+				E30B619C1A26EF66003A1DB2 /* ConnectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +418,7 @@
 				E37D47221A1EE50D004AF65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E37D47231A1EE50D004AF65B /* Build configuration list for PBXNativeTarget "LocalChatTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				E37D47251A1EE50D004AF65B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
