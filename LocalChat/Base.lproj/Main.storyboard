@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QxY-zD-nzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QxY-zD-nzF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,25 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-2G-Ggc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-dm-dqh">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-dm-dqh">
                                 <rect key="frame" x="-5" y="522" width="325" height="46"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIK-cj-0oO">
-                                        <rect key="frame" x="8" y="8" width="97" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIK-cj-0oO">
+                                        <rect key="frame" x="8" y="8" width="243" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="Wlf-Pk-4M1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgP-5I-MxG">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgP-5I-MxG">
                                         <rect key="frame" x="250" y="7" width="69" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="jXn-RH-bb7"/>
@@ -48,18 +41,23 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CgP-5I-MxG" firstAttribute="baseline" secondItem="OIK-cj-0oO" secondAttribute="baseline" id="4KZ-Ze-eUg"/>
-                                    <constraint firstItem="OIK-cj-0oO" firstAttribute="bottom" secondItem="dtb-dm-dqh" secondAttribute="bottomMargin" id="LVI-0W-HW9"/>
-                                    <constraint firstItem="OIK-cj-0oO" firstAttribute="leading" secondItem="dtb-dm-dqh" secondAttribute="leadingMargin" id="dDg-GV-4iC"/>
-                                    <constraint firstItem="OIK-cj-0oO" firstAttribute="top" secondItem="dtb-dm-dqh" secondAttribute="topMargin" id="kWf-Av-Rar"/>
-                                    <constraint firstAttribute="trailing" secondItem="CgP-5I-MxG" secondAttribute="trailing" constant="6" id="nVp-eg-hjF"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-2G-Ggc">
+                                <rect key="frame" x="5" y="64" width="320" height="460"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dtb-dm-dqh" secondAttribute="trailing" id="DtN-Iq-DOe"/>
-                            <constraint firstItem="dtb-dm-dqh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-21" id="Y8h-Ji-KIE"/>
-                            <constraint firstItem="dtb-dm-dqh" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="imf-9g-qN6"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="trailing" secondItem="dtb-dm-dqh" secondAttribute="trailing" id="349-Wp-lnn"/>
+                            <constraint firstAttribute="trailing" secondItem="wxm-2G-Ggc" secondAttribute="trailing" id="EvA-PA-S9Z"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="54" id="JQq-ho-GR4"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cyA-Kp-74U"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="gbJ-x3-9L3"/>
+                            <constraint firstItem="dtb-dm-dqh" firstAttribute="top" secondItem="wxm-2G-Ggc" secondAttribute="bottom" constant="8" symbolic="YES" id="tz4-fn-xe3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vbT-Zw-piR">
@@ -72,6 +70,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="chatTextView" destination="wxm-2G-Ggc" id="FjN-it-w4b"/>
+                        <outlet property="keyboardHeight" destination="tz4-fn-xe3" id="J4B-jw-qxp"/>
                         <outlet property="sendText" destination="CgP-5I-MxG" id="h62-XB-kor"/>
                         <outlet property="textEntryView" destination="dtb-dm-dqh" id="lHv-Jc-l9m"/>
                         <outlet property="textInput" destination="OIK-cj-0oO" id="zgH-4g-h9d"/>
@@ -79,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="258"/>
+            <point key="canvasLocation" x="-196" y="258"/>
         </scene>
         <!--Connections-->
         <scene sceneID="fLy-pR-pKo">
@@ -110,7 +109,13 @@
                             <constraint firstItem="CbK-xv-ML0" firstAttribute="leading" secondItem="Fpk-kG-5Bj" secondAttribute="leading" id="rMG-qs-bSC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Connections" id="fZj-iX-KDn"/>
+                    <navigationItem key="navigationItem" title="Connections" id="fZj-iX-KDn">
+                        <barButtonItem key="rightBarButtonItem" title="Browse" id="AS1-kN-zOZ">
+                            <connections>
+                                <action selector="browse:" destination="rjo-F7-wfF" id="Ce1-lR-ZnB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecp-Y0-ZHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
