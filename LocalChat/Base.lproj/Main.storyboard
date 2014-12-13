@@ -17,18 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-dm-dqh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-2G-Ggc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtb-dm-dqh">
                                 <rect key="frame" x="-5" y="522" width="325" height="46"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIK-cj-0oO">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIK-cj-0oO">
                                         <rect key="frame" x="8" y="8" width="243" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="Wlf-Pk-4M1"/>
+                                            <constraint firstAttribute="width" constant="243" id="Wlf-Pk-4M1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="xcT-7I-Do9"/>
+                                        </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgP-5I-MxG">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgP-5I-MxG">
                                         <rect key="frame" x="250" y="7" width="69" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="jXn-RH-bb7"/>
@@ -36,34 +45,36 @@
                                         <state key="normal" title="Send">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="send:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="bSc-jg-L6M"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CgP-5I-MxG" firstAttribute="baseline" secondItem="OIK-cj-0oO" secondAttribute="baseline" id="4KZ-Ze-eUg"/>
+                                    <constraint firstItem="OIK-cj-0oO" firstAttribute="top" secondItem="dtb-dm-dqh" secondAttribute="topMargin" id="NsX-nf-dVS"/>
+                                    <constraint firstAttribute="trailing" secondItem="CgP-5I-MxG" secondAttribute="trailing" constant="6" id="TMc-fK-Xba"/>
+                                    <constraint firstItem="OIK-cj-0oO" firstAttribute="leading" secondItem="dtb-dm-dqh" secondAttribute="leadingMargin" id="vM1-Zz-2Sc"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxm-2G-Ggc">
-                                <rect key="frame" x="5" y="64" width="320" height="460"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wxm-2G-Ggc" firstAttribute="trailing" secondItem="dtb-dm-dqh" secondAttribute="trailing" id="349-Wp-lnn"/>
                             <constraint firstAttribute="trailing" secondItem="wxm-2G-Ggc" secondAttribute="trailing" id="EvA-PA-S9Z"/>
-                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="54" id="JQq-ho-GR4"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="JQq-ho-GR4"/>
                             <constraint firstItem="wxm-2G-Ggc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="cyA-Kp-74U"/>
-                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="gbJ-x3-9L3"/>
-                            <constraint firstItem="dtb-dm-dqh" firstAttribute="top" secondItem="wxm-2G-Ggc" secondAttribute="bottom" constant="8" symbolic="YES" id="tz4-fn-xe3"/>
+                            <constraint firstItem="dtb-dm-dqh" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="gHw-ik-0gr"/>
+                            <constraint firstItem="wxm-2G-Ggc" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-54" id="gbJ-x3-9L3"/>
+                            <constraint firstItem="dtb-dm-dqh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-21" id="n6B-vV-OB0"/>
+                            <constraint firstItem="dtb-dm-dqh" firstAttribute="top" secondItem="wxm-2G-Ggc" secondAttribute="bottom" constant="62" id="tz4-fn-xe3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="vbT-Zw-piR">
-                        <barButtonItem key="rightBarButtonItem" title="Connect" id="h8i-cM-liy">
+                    <navigationItem key="navigationItem" id="Phk-pS-hhf">
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="TJf-r0-sDQ">
                             <connections>
-                                <segue destination="rjo-F7-wfF" kind="show" id="Ofh-HH-aMl"/>
+                                <segue destination="rjo-F7-wfF" kind="show" id="Uid-fo-SAL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

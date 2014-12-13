@@ -24,14 +24,17 @@
     }
     return self;
 }
+
 -(void)setupPeerAndSessionWithDisplayName:(NSString *)displayName {
     self.peerID = [[MCPeerID alloc] initWithDisplayName:displayName];
     self.session = [[MCSession alloc] initWithPeer:self.peerID];
     self.session.delegate = self;
 }
+
 -(void)setupMCBrowser {
     self.browser = [[MCBrowserViewController alloc] initWithServiceType:@"chat" session:self.session];
 }
+
 -(void)advertiseSelf:(BOOL)shouldAdvertise {
     if (shouldAdvertise) {
         self.advertiser = [[MCAdvertiserAssistant alloc] initWithServiceType:@"chat" discoveryInfo:nil session:self.session];
@@ -41,10 +44,13 @@
         self.advertiser = nil;
     }
 }
+
 -(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
 }
+
 -(void)session:(MCSession *)session didFinishReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID atURL:(NSURL *)localURL withError:(NSError *)error {
 }
+
 -(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
     //state 0 = Not Connected
     //state 1 = Connecting
@@ -62,12 +68,28 @@
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"MPCDidChangeStateNotification" object:nil];
 }
+
 -(void)session:(MCSession *)session didStartReceivingResourceWithName:(NSString *)resourceName fromPeer:(MCPeerID *)peerID withProgress:(NSProgress *)progress {
 }
 
 
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    
+    NSDictionary *dict = @{@"data": data,
+                           @"peerID": peerID
+                           };
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"MPCDidReceiveData" object:
+     nil userInfo:dict];
+    
 }
+
+
+
+
+
+
 
 
 @end

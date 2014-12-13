@@ -6,6 +6,7 @@
 // Copyright (c) 2014 Portland Code School. All rights reserved.
 //
 #import "ViewController.h"
+#import "AppDelegate.h"
 @interface ViewController ()
 @end
 @implementation ViewController
@@ -13,10 +14,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     //Notify this ViewController when the keyboard is was shown.
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardWillChangeFrameNotification
-                                               object:nil];
+    
+    [self addNotifications];
     //Adding a tap gesture recognizer so if someone taps the screen, it will hide the keyboard
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     //Set the number of taps required to initiate the action.
@@ -24,10 +23,78 @@
     //Add this gesture recognizer to our views list of recognizers.
     [self.view addGestureRecognizer:tap];
 }
+
+- (IBAction)send:(id)sendor {
+    [self sendMyMessage];
+}
+
+-(void)addNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardWillChangeFrameNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveData:) name:@"MPCDidReceiveData" object:nil];
+
+}
+
+-(void) didReceiveData:(NSNotification *)notification {
+    MCPeerID *peerID = [[notification userInfo] objectForKey:@"peerID"];
+
+
+    NSString *peerDisplayName = peerID.displayName;
+
+    NSData *dataReceived = [[notification userInfo] objectForKey:@"data"];
+    
+    NSString *textFromData = [[NSString alloc] initWithData:dataReceived encoding: NSUTF8StringEncoding];
+    
+    NSString *formatedTextWithDisplayName = [NSString stringWithFormat:@"%@:\n %@\n\n",peerDisplayName,textFromData];
+    
+    [self performSelectorOnMainThread:@selector(updateChatViewWithString:) withObject: formatedTextWithDisplayName waitUntilDone:NO];
+    
+    [self updateChatViewWithString:formatedTextWithDisplayName];
+
+}
+
+-(void)sendMyMessage {
+    
+    if (self.textInput.text.length > 0){
+    
+        AppDelegate *myAppDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        NSData *dataToSend = [self.textInput.text dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSError *error;
+        
+        NSArray *allPeers = myAppDelegate.mpcManager.session.connectedPeers;
+        
+                              
+        [myAppDelegate.mpcManager.session sendData: (dataToSend) toPeers:allPeers withMode:MCSessionSendDataReliable error:&error];
+        
+        if (error) {
+            NSLog(@"error = %@", error);
+        }
+        
+        NSString *formatedTextWithDisplayName = [NSString stringWithFormat:@"Me:\n %@\n\n",self.textInput.text];
+        
+        [self updateChatViewWithString:formatedTextWithDisplayName];
+        
+        self.textInput.text = @"";
+    }
+    [self hideKeyboard];
+    
+}
+
+-(void)updateChatViewWithString:(NSString *)textForView {
+    self.chatTextView.text = [self.chatTextView.text stringByAppendingString:textForView];
+    
+}
+
 -(void)viewWillDisappear:(BOOL)animated {
     //Hide the keyboard if we navigate away from this view.
     [self hideKeyboard];
 }
+
 -(void)hideKeyboard {
     [self.textInput resignFirstResponder];
 }
@@ -64,8 +131,10 @@
 //This delegate method gets called when the user presses return.
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    [self sendMyMessage];
+    
     //Dismiss the keyboard by calling this method.
-    [self hideKeyboard];
+    //[self hideKeyboard];
     //Needs a return value to know if a return should be inserted in the textfield.
     return NO;
 }
